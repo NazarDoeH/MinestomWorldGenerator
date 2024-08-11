@@ -13,11 +13,13 @@ import org.example.Commands.Command_Kill;
 import org.example.Commands.Command_SetTime;
 import org.example.Commands.Command_GeneratorHeight;
 import org.example.Commands.Command_GameMode;
-import org.example.world.WorldGenerator;
+import org.example.world.WorldGeneratorInitializer;
 
 import java.util.Random;
 
 public class Main {
+
+    public static InstanceContainer instanceContainer;
 
     public static void main(String[] args) {
         Random random = new Random();
@@ -29,7 +31,7 @@ public class Main {
         // Create the instance
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
 
-        InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
+        instanceContainer = instanceManager.createInstanceContainer();
 
         instanceContainer.setChunkSupplier(LightingChunk::new);
 
@@ -44,7 +46,7 @@ public class Main {
 
         // Set the ChunkGenerator
         Block tnt = Block.TNT.withProperty("unstable", "true");
-        instanceContainer.setGenerator(WorldGenerator.GenerateWorld());
+        instanceContainer.setGenerator(WorldGeneratorInitializer.GetGenerator());
 
         // Add an event callback to specify the spawning instance (and the spawn position)
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
