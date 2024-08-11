@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'net.minestom:minestom-snapshots:461c56e749'
+    implementation 'org.slf4j:slf4j-nop:2.0.7'
+    implementation 'de.articdive:jnoise-core:4.1.0'
+    implementation 'de.articdive:jnoise-pipeline:4.1.0'
+    implementation 'de.articdive:jnoise-generators:4.1.0'
+    implementation 'de.articdive:jnoise-modifiers:4.1.0'
+    implementation 'de.articdive:jnoise-modules:4.1.0'
+    implementation 'de.articdive:jnoise-transformers:4.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
