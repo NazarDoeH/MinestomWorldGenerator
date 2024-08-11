@@ -6,7 +6,7 @@ import net.minestom.server.instance.generator.Generator;
 import java.util.List;
 import java.util.ArrayList;
 
-public class WorldShaper {
+public class WorldModifier {
     private List<Generator> stages = new ArrayList<>();
 
     public void AddStage(Generator stage) {

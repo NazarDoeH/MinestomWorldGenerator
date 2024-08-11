@@ -12,17 +12,16 @@ public class WorldGeneratorInitializer
 
     public static Generator GetGenerator()
     {
-        WorldShaper worldShaper = new WorldShaper();
+        WorldModifier worldModifier = new WorldModifier();
 
-        worldShaper.AddStage(new LandscapeHeightStage(1));
-        worldShaper.AddStage(new DecorGrassStage(1));
+        worldModifier.AddStage(new LandscapeStage(1));
 
         return new Generator()
         {
             @Override
             public void generate(@NotNull GenerationUnit generationUnit)
             {
-                worldShaper.Generate(generationUnit);
+                worldModifier.Generate(generationUnit);
             }
         };
     }
